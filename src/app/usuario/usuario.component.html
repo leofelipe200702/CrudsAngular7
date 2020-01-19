@@ -1,0 +1,47 @@
+<h1>Usuário:</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="usuarioForm.dirty && usuarioForm.invalid">Preencha os Campos Obrigatórios!</div>
+
+  <form (ngSubmit)="!usuarioForm.invalid && saveUsuario()" #usuarioForm="ngForm">
+  <fieldset class="form-group">
+    <label>Nome</label>
+    <input type="text" name="firstName" [(ngModel)]="usuario.firstName"  class="form-control" name="firstName" required="required">
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Sobrenome</label>
+    <input type="text" name="lastName" [(ngModel)]="usuario.lastName" class="form-control" name="lastName" required="required">
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Email</label>
+    <input type="text" name="email" [(ngModel)]="usuario.email" class="form-control" name="email" required="required">
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Senha</label>
+    <input type="password"  name="password" [(ngModel)]="usuario.password" class="form-control" name="password" required="required">
+  </fieldset>
+  <h1>Telefones:</h1>
+  <fieldset class="form-group">
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código País</th>
+            <th>DDD</th>
+            <th>Número</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let telefone of usuario.telefones let i=index">
+            <td><input type="text" name="countryCode{{i}}" [(ngModel)]="usuario.telefones[i].countryCode" class="form-control" required="required" minlength="2" maxlength="2" ></td>
+            <td><input type="text" name="areaCode{{i}}" [(ngModel)]="usuario.telefones[i].areaCode" class="form-control" required="required" minlength="2" maxlength="2"></td>
+            <td><input type="text" name="number{{i}}" [(ngModel)]="usuario.telefones[i].number" class="form-control" required="required" minlength="8" maxlength="9"></td>
+            <td><input type="text" name="tipoTelefone{{i}}" [(ngModel)]="usuario.telefones[i].tipoTelefone" class="form-control" required="required" readonly></td>
+          </tr>
+          <button type="submit" class="btn btn-success"  >Save</button>
+        </tbody>
+      </table>    
+    </div>    
+  </fieldset>
+  </form>  
+</div>

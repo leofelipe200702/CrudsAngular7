@@ -1,0 +1,20 @@
+<h1>Welcome</h1>
+<div class="container">
+welcome {{name}}
+</div>
+<div class="container" *ngIf="messageFromError">
+  <h2>Erro ao consultar mensagem!</h2>
+  {{messageFromError}}
+</div>
+<div class="container">
+  Your Todo's click <a routerLink="/todos">here</a>
+</div>
+<div class="container">
+  click here for get message
+  <button (click)="getMessageWithVariable()" class="btn btn-success">Get Message</button>
+</div>
+<div class="container" *ngIf="messageFromService">
+  <h2>Your Message</h2>
+  {{messageFromService}}
+</div>
+

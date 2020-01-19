@@ -1,0 +1,17 @@
+<h1>Tarefa</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Preencha os Campos Obrigatórios!</div>
+  <div class="alert alert-warning" *ngIf="todoForm.dirty && ngTargetDate.invalid">Preencha a Descrição!</div>
+  <div class="alert alert-warning" *ngIf="todoForm.dirty && ngDescription.invalid">Preencha a Data!</div>
+  <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm" >
+    <fieldset class="form-group">
+      <label>Descrição</label>
+      <input #ngDescription="ngModel" [(ngModel)]="todo.description" class="form-control" type="text" name="description" required="required"/>
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Data Limite</label>
+        <input  #ngTargetDate="ngModel" [ngModel]="todo.targetDate | date: 'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event" class="form-control" type="date" name="targetDate" required="required"/>
+    </fieldset>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </form>
+</div>
