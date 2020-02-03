@@ -1,4 +1,4 @@
-import { API_URL } from './../../app.constants';
+import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -17,10 +17,10 @@ export class WelcomeDataService {
   }
 
   executeHelloWorldBeanService() {
-    return this.httpClient.get<HelloWorldBean>(`${API_URL}/hello-world-bean`);
+    return this.httpClient.get<HelloWorldBean>(`${environment.API_URL}/hello-world-bean`);
   }
 
   executeHelloWorldBeanServiceWithPathVariable(name) {
-    return this.httpClient.get<HelloWorldBean>(`${API_URL}/hello-world/path-variable/${name}`);
+    return this.httpClient.get<HelloWorldBean>(`${environment.API_URL}/hello-world/path-variable/${name}`);
   }
 }
