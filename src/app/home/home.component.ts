@@ -8,12 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  nome = ''
-
   constructor(private route: ActivatedRoute ) { }
 
   ngOnInit() {
-    this.nome  = this.route.snapshot.params['nome'];
   }
 
 }

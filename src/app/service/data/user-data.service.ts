@@ -15,15 +15,15 @@ export class UserDataService {
   }
 
   deleteUsuario(idUsuario){
-    return this.http.delete(`http://localhost:8080/usuarios/${idUsuario}`);
+    return this.http.delete(`${API_URL}/usuarios/${idUsuario}`);
   }
 
   getUsuario(idUsuario){
-    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${idUsuario}`); 
+    return this.http.get<Usuario>(`${API_URL}/usuarios/${idUsuario}`); 
   }
 
   updateUsuario(idUsuario,usuario){
-    return this.http.put(`http://localhost:8080/usuarios/${idUsuario}`,usuario);
+    return this.http.put(`${API_URL}/usuarios/${idUsuario}`,usuario);
   }
 
   createUsuario(usuario) {

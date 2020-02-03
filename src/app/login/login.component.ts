@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'in28minutes';
+  username = '';
   password = '';
   msgError = 'Dados Inválidos!';
   loginInvalido = false;
@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
   handleJWTAuthLogin(){
     this.basicAuthentication.executeJWTAuthentication(this.username, this.password).subscribe(
       data => {
-          console.log(data);
+          //console.log(data);
           this.loginInvalido = false;
-          this.router.navigate(['home', this.username]);
+          this.router.navigate(['home']);
       },
       error =>{
         console.log(error);
@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
   handleBasicAuthLogin() {
     this.basicAuthentication.executeBasicAuthentication(this.username, this.password).subscribe(
       data => {
-          console.log(data);
+          //console.log(data);
           this.loginInvalido = false;
-          this.router.navigate(['home', this.username]);
+          this.router.navigate(['home',]);
       },
       error =>{
         console.log(error);

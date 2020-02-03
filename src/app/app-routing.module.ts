@@ -14,7 +14,7 @@ import { TodoComponent } from './todo/todo.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService] },
-  { path: 'home/:nome', component: HomeComponent,canActivate:[RouteGuardService]},
+  { path: 'home', component: HomeComponent,canActivate:[RouteGuardService]},
   { path: 'login', component: LoginComponent },
   { path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
