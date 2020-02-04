@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'https://crudusersrest-api.herokuapp.com'
+  API_URL: 'http://localhost:8080'
 };
 
 /*
